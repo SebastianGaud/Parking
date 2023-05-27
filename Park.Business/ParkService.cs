@@ -8,9 +8,9 @@ namespace Park.Business;
 public class ParkService : IParkService
 {
     // la logica per aggiungere una macchina la database
-    private readonly CarRepository _carRepository;
+    private readonly ICarRepository _carRepository;
 
-    public ParkService(CarRepository carRepository) {
+    public ParkService(ICarRepository carRepository) {
         _carRepository = carRepository;
     }
 

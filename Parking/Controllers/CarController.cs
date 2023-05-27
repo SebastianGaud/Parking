@@ -15,7 +15,7 @@ namespace Parking.Controllers
         private readonly IParkService _parkService;
         private readonly ParkingDbContext _context;
 
-        public CarController(ParkService parkService, ParkingDbContext context) {
+        public CarController(IParkService parkService, ParkingDbContext context) {
             _parkService = parkService;
             _context = context;
         }
@@ -36,8 +36,6 @@ namespace Parking.Controllers
 
         [HttpGet("/ints")]
         public IActionResult GetNumbers() {
-
-
             var data = _parkService.GetInts().First(x => x == 20);
             return Ok(data);
         }

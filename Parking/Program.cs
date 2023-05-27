@@ -19,9 +19,16 @@ builder.Services.AddTransient<ICarRepository, CarRepository>();
 
 var app = builder.Build();
 
+
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    app.UseCors(x => x
+        .AllowAnyMethod()
+        .AllowAnyHeader()
+        .SetIsOriginAllowed(origin => true) // allow any origin
+        .AllowCredentials());               // allow credentials
     app.UseSwagger();
     app.UseSwaggerUI();
 }
