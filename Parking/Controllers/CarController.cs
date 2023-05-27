@@ -35,7 +35,9 @@ namespace Parking.Controllers
         }
 
         [HttpGet("/ints")]
-        public IActionResult GetNumbers(int treshold) {
+        public IActionResult GetNumbers() {
+
+
             var data = _parkService.GetInts().First(x => x == 20);
             return Ok(data);
         }
